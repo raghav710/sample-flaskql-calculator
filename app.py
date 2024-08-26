@@ -1,5 +1,6 @@
 import sqlite3
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
+from calculator import calculate
 
 app = Flask(__name__)
 
@@ -32,6 +33,10 @@ def get_history():
     history = [dict(row) for row in cursor.fetchall()]
     conn.close()
     return jsonify({'history': history})
+
+@app.route('/')
+def calculator():
+    return render_template('calculator.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

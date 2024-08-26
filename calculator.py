@@ -11,7 +11,8 @@ def calculate(operator, num1, num2):
     Returns:
         float: The result of the calculation.
     """
-
+    num1 = float(num1)
+    num2 = float(num2)
     if operator == "+":
         return num1 + num2
     elif operator == "-":
