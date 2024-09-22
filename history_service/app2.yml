@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: history-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: history
+  template:
+    metadata:
+      labels:
+        app: history
+    spec:
+      containers:
+      - name: history
+        image:  history_svc_image
+        ports:
+        - containerPort: 5001
