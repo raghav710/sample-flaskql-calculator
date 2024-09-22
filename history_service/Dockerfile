@@ -5,7 +5,7 @@ COPY . /app
 
 # Install dependencies
 WORKDIR /app
-RUN pip install Flask
+RUN pip install Flask flask-cors
 
 # Expose port for the Flask application
 EXPOSE 5001

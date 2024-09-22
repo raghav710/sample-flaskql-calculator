@@ -38,20 +38,20 @@
     const data = Object.fromEntries(formData);
 
     try {
-      const response = await fetch('http://127.0.0.1:5000/calculate', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      });
-      const result = await response.json();
-      resultDiv.textContent = `Result: ${result.result}`;
+      // const response = await fetch('http://127.0.0.1:5000/calculate', {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json'
+      //   },
+      //   body: JSON.stringify(data)
+      // });
+      // const result = await response.json();
+      // resultDiv.textContent = `Result: ${result.result}`;
 
       // Update history
       const historyData = await fetch('http://127.0.0.1:5001/history').then(response => response.json());
       historyList.innerHTML = '';
-      historyData.history.forEach(item => {
+      historyData.forEach(item => {
         const li = document.createElement('li');
         li.textContent = `${item.num1} ${item.operator} ${item.num2} = ${item.result}`;
         historyList.appendChild(li);
